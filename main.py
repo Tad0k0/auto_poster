@@ -23,7 +23,7 @@ while True:
   userInputAction.nameAct = userIn[0]
   try:
     userInputAction.parameter = userIn[1]
-  except:
+  except  IndexError:
     pass
 
   if userInputAction.nameAct == helpAction.nameAct and userInputAction.parameter == helpAction.parameter:
