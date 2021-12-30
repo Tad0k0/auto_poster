@@ -44,13 +44,8 @@ def createAccount():
         print("file is empty") #first character is the empty string..
       else:
         reader = first_char + f.read()
-        print(reader)
         reader = reader.split("\n")
-        print(*reader)
-        print(type(reader))
-        print(re.search(r'^\d+', reader[0]))
         currentIndex = re.search(r'^\d+', reader[0]).group()
-    print("index: " + str(currentIndex))
     currentAccount = account(int(currentIndex)+1, inputType, inputLogin, inputPassword)
     #save account data into file
     with open('accountDataStorage.csv', 'a', encoding='UTF8', newline='') as f:
@@ -62,7 +57,7 @@ def createAccount():
 #      print("trying to log in")
 #      loginTelegramAccount(currentAccount.login)
 #    print("logging is successful")
-    break
+    j = 0
 
 def listAccount():
   with open('accountDataStorage.csv') as f:

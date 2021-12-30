@@ -29,7 +29,7 @@ while True:
   try:
     userInputAction.parameter = userIn[1]
   except  IndexError:
-    userIn.pop(1)
+    userInputAction.parameter = ''
 
   if userInputAction.nameAct == helpAction.nameAct and userInputAction.parameter == helpAction.parameter:
     print("help: list commands, fot more info input help <comandName>;\naccount: to manage accounts;\nmessage: to post message;\nexit: to exit")
