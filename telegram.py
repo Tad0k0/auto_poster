@@ -14,24 +14,40 @@ f.close()
 
 
 
-interface = {
-  "help": print("help: output info")
-}
-
-print("input help for get info about interface")
-userAction = input()
-
-
 
 client = TelegramClient('session_name', idApp, hashApp)
-client.start()
 
+
+def loginTelegramAccount(number):
+    client.connect()
+    client.send_code_request(number)
+    code = input("input code:")
+    client.sign_in(number, code)
+
+def logoutTelegramAccount():
+      client.log_out()
+
+
+#for verify how api work
+"""
 while True:
+#  pass
+#  client.start()
+  print("input action")
   userActionTelegram=input()
+#  client.start()
   if userActionTelegram == "info":
     print(client.get_me().stringify())
   elif userActionTelegram == "exit":
     break 
+  elif userActionTelegram == "login":
+    client.connect()
+    number = input("input number")
+    client.send_code_request(number)
+    code = input("input code")
+    client.sign_in(number, code)
+  elif userActionTelegram == "logout":
+    client.log_out()
   else:
     print("invalid action")
 #client.send_message('Lyra1Heartstrings', 'Hello! Talking to you from Telethon')
@@ -44,3 +60,4 @@ while True:
 #@client.on(events.NewMessage(pattern='(?i)hi|hello'))
 #async def handler(event):
 #    await event.respond('Hey!')
+"""
