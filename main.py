@@ -1,3 +1,6 @@
+#import telegram
+import account
+
 class userAction(object):
   def __init__(self, nameAct, parameter):
     self.inp = (nameAct, parameter)
@@ -32,6 +35,8 @@ while True:
     print("account list: shows a list of accounts;\n account create: to create an account\n account delete: to delete an account")
   elif userInputAction.nameAct == exitAction.nameAct:
     break
+  else:
+    print("command is not found")
 
 """
 if userAction == "help" :
